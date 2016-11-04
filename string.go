@@ -1,8 +1,11 @@
 package common
 
 import (
+	"crypto/md5"
+	"encoding/hex"
 	"fmt"
 	"math/rand"
+	"strings"
 	"time"
 
 	"github.com/skip2/go-qrcode"
@@ -52,4 +55,11 @@ func MakeQrCode(src string) ([]byte, error) {
 //FormatTime Format a time a pattern
 func FormatTime(time *time.Time, pattern string) string {
 	return time.Format(pattern)
+}
+
+func MD5Encode(src string) string {
+	h := md5.New()
+	h.Write([]byte(src))
+	cipherStr := h.Sum(nil)
+	return strings.ToUpper(hex.EncodeToString(cipherStr))
 }

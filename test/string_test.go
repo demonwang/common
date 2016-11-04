@@ -57,3 +57,13 @@ func Test_timeFormat(t *testing.T) {
 		t.Log(stringDate)
 	}
 }
+
+func Test_md5encode(t *testing.T) {
+	src := "123456"
+	rs := common.MD5Encode(src)
+	if common.IsBlank(rs) {
+		t.Fatal(rs)
+	} else {
+		t.Log(rs)
+	}
+}
