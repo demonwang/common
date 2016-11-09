@@ -45,3 +45,22 @@ func Test_makeQrCode(t *testing.T)  {
 		f.Close()
 	}
 }
+
+type TestSt struct {
+	Name string `col:"名字"`
+	Age  int `col:"年龄"`
+	FFF float64 `col:"杀掉"`
+}
+
+func Test_DumpModelToXls(t *testing.T)  {
+	a := []TestSt{{"a",16,10.2},{"a",16,10.2},{"a",16,10.2}}
+
+	f,err := common.DumpModelToxls("haha",a)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	file := os.NewFile(100,"file.xlsx")
+	defer file.Close()
+	f.Write(file)
+}
