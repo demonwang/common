@@ -4,9 +4,7 @@ import (
 	"os"
 	"testing"
 	"time"
-
 	"github.com/demonwang/common"
-	"os"
 )
 
 func Test_isBlank(t *testing.T) {
